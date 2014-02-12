@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWin));
 			this.tmrMain = new System.Windows.Forms.Timer(this.components);
 			this.txtHours = new System.Windows.Forms.TextBox();
 			this.lblHours = new System.Windows.Forms.Label();
@@ -167,6 +168,7 @@
 			this.Controls.Add(this.lblMinutes);
 			this.Controls.Add(this.lblHours);
 			this.Controls.Add(this.txtHours);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainWin";
 			this.Text = "Timer";
 			this.ResumeLayout(false);
