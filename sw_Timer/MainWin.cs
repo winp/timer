@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
+using System.IO;
+using WMPLib;
 
 namespace sw_Timer
 {
@@ -16,10 +17,12 @@ namespace sw_Timer
 		bool Running;
 		DateTime EndTime;
 		TimeSpan Duration;
+		WindowsMediaPlayer wPlayer = new WindowsMediaPlayer();
 
 		public MainWin()
 		{
 			InitializeComponent();
+			LoadSettings();
 		}
 		private void tmrMain_Tick(object sender, EventArgs e)
 		{
@@ -27,10 +30,15 @@ namespace sw_Timer
 			TimeSpan timeLeft = EndTime - DateTime.Now;
 			txtHours.Text = timeLeft.Hours.ToString();
 			txtMinutes.Text = timeLeft.Minutes.ToString();
-			txtSeconds.Text = timeLeft.Seconds.ToString();
+			txtSeconds.Text = (timeLeft.Seconds + 1).ToString();
 			if ( timeLeft > TimeSpan.Zero ) return;
-			for ( int i = 0; i < 1000; i++ )
-			{ SystemSounds.Beep.Play(); }
+			try
+			{
+				wPlayer.URL = openFileSound.FileName;
+				wPlayer.controls.play();
+				txtSeconds.Text = "0";
+			}
+			catch ( Exception ) { }
 			Running = false;
 		}
 		private void btnStart_Click(object sender, EventArgs e)
@@ -51,10 +59,30 @@ namespace sw_Timer
 		private void btnStop_Click(object sender, EventArgs e)
 		{
 			Running = false;
+			wPlayer.controls.stop();
 		}
 		private void btnSound_Click(object sender, EventArgs e)
 		{
 			openFileSound.ShowDialog();
+			SaveSettings();
+		}
+		private void LoadSettings()
+		{
+			string myDocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			string myAppSettings = Path.Combine(myDocs, "Timer\\settings.ini");
+			if ( File.Exists(myAppSettings) )
+				openFileSound.FileName = File.ReadAllText(myAppSettings);
+			else
+				openFileSound.FileName = "Sound\\def_sound.wav";
+		}
+		private void SaveSettings()
+		{
+			string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			settings = Path.Combine(settings, "Timer");
+			if(!Directory.Exists(settings))
+				Directory.CreateDirectory(settings);
+			settings = Path.Combine(settings, "settings.ini");
+			File.WriteAllText(settings, openFileSound.FileName);
 		}
 	}
 }

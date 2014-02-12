@@ -108,6 +108,7 @@
 			// openFileSound
 			// 
 			this.openFileSound.FileName = "openFileSound";
+			this.openFileSound.Filter = "All Files|*.*";
 			// 
 			// btnStart
 			// 
