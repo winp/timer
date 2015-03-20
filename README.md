@@ -20,6 +20,6 @@ timeout `Sound` of your choice. Even *MP3* files are ok.
 
 
 <div width="50%">
-<img src="/assets/img/0.png" width="50%"><br/>
+<img src="/assets/img/1.png" width="50%"><br/>
 Let the timer go ticking, while you do your work.
 </div>
