@@ -14,10 +14,10 @@ to pause the timer, and `Start` to contiue.
 
 ## demo
 
-<img src="/assets/img/0.png" width="50%">
+<img src="/assets/img/0.png" width="50%"><br/>
 Start **cs-countdown-timer**. Set the timer and `Start`. You can select any timeout
 `Sound` of your choice. Even *MP3* files are ok.
 
 
-<img src="/assets/img/0.png" width="50%">
+<img src="/assets/img/0.png" width="50%"><br/>
 Let the timer go ticking, while you do your work.
