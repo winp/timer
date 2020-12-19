@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sw_Timer", "sw_Timer\sw_Timer.csproj", "{03EE453B-9F1C-4576-9085-C362C355222C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer.csproj", "{03EE453B-9F1C-4576-9085-C362C355222C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

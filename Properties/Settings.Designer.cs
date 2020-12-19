@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace sw_Timer.Properties
+namespace Timer.Properties
 {
 
 
